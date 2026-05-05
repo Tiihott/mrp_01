@@ -4,4 +4,4 @@ autoreconf -fvi
 bash configure
 make
 make install DESTDIR=/code/buildroot
-make check LD_LIBRARY_PATH=/code/buildroot
+make check LD_LIBRARY_PATH=$libdir
