@@ -8,12 +8,12 @@ lib_sodium_ristretto_la_CXXFLAGS = -DSTANDARD -DMYSQL_SERVER @MYSQL_CFLAGS@
 lib_sodium_ristretto_la_LDFLAGS = -module -avoid-version -no-undefined -rpath @MYSQL_PLUGINDIR@
 lib_sodium_ristretto_la_LIBADD = -lsodium
 
-RISTRETTO_BUILT_TESTS = tests/tests_sodium_ristretto
+RISTRETTO_BUILT_TESTS = tests/tests_ristretto_isvalidpoint
 TESTS = $(RISTRETTO_BUILT_TESTS)
 check_PROGRAMS = $(RISTRETTO_BUILT_TESTS)
 
-tests_tests_sodium_ristretto_SOURCES = tests/tests_sodium_ristretto.c
-tests_tests_sodium_ristretto_LDADD = -lsodium lib_sodium_ristretto.la
+tests_tests_ristretto_isvalidpoint_SOURCES = tests/tests_ristretto_isvalidpoint.c
+tests_tests_ristretto_isvalidpoint_LDADD = -lsodium lib_sodium_ristretto.la
 
 
 EXTRA_DIST = *.h *.sql
