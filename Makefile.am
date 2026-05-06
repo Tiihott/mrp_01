@@ -11,6 +11,8 @@ lib_sodium_ristretto_la_LIBADD = -lsodium
 TESTS = tests_sodium_ristretto
 check_PROGRAMS = tests_sodium_ristretto
 tests_sodium_ristretto_SOURCES = lib_sodium_ristretto.h tests_sodium_ristretto.c
+tests_sodium_ristretto_SOURCES = lib_sodium_ristretto.c tests_sodium_ristretto.c
+tests_sodium_ristretto_LDADD = -lsodium
 
 
 EXTRA_DIST = *.h *.sql
