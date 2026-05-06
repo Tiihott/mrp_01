@@ -5,7 +5,7 @@
 #include <sodium.h>
 #include <string.h>
 
-#include "lib_sodium_ristretto.h"
+#include "../lib_sodium_ristretto.h"
 
 void testPassRistrettoisvalidpoint_init() {
     char *RistrettoPoint = malloc (32);
