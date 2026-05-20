@@ -15,6 +15,9 @@ jobs:
     steps:
       - uses: actions/checkout@v6
 
+      - name: Check astyle version
+        run: astyle --version
+
       - name: Check Podman version
         run: podman --version
 
