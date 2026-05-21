@@ -349,7 +349,7 @@ void ristrettosub_deinit( UDF_INIT* initid )
     }
 }
 
-char* ristrettosub( UDF_INIT* initid, UDF_ARGS* args, char *result,
+char* ristrettosub( UDF_INIT* initid, UDF_ARGS* args, char* result,
                     unsigned long* length, char* is_null, char* error )
 {
     if( sodium_init() == -1 ) {
