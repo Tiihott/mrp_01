@@ -29,10 +29,16 @@ jobs:
       - name: Get git diff
         id: diff
         run: |
-          echo "code=$(git diff --exit-code)" >> "$GITHUB_OUTPUT"
+          git diff --exit-code
+          if [ $? -eq 0 ]; then
+            echo "No changes to commit."
+            echo "::set-output name=changes::false"
+          else
+            echo "::set-output name=changes::true"
+          fi
 
       - name: Assert git diff
-        if: steps.diff.outputs.code
+        if: steps.diff.outputs.changes == 'true'
         run: |
           echo "::error::There are changes done by astyle."
           gh run cancel ${{ github.run_id }}
