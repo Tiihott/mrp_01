@@ -32,7 +32,7 @@ jobs:
           if [ $? -eq 0 ]; then
             echo "No changes done by astyle."
           else
-            echo "There are changes done by astyle."
+            echo "::error::There are changes done by astyle."
             gh run cancel ${{ github.run_id }}
             exit 1
           fi
