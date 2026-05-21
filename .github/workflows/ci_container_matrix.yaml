@@ -24,7 +24,16 @@ jobs:
         run: astyle --version
 
       - name: Run astyle
-        run: astyle --dry-run --options=astyle-options.ini --mode=c --recursive "./*.c, *.h"
+        run: astyle --options=astyle-options.ini --mode=c --recursive "./*.c, *.h"
+
+      - name: Check git diff
+        run: |
+          git diff --exit-code
+          if [ $? -eq 0 ]; then
+            echo "No changes to commit."
+          else
+            echo "There are changes to commit."
+          fi
 
       - name: Check Podman version
         run: podman --version
