@@ -23,6 +23,9 @@ jobs:
       - name: Check astyle version
         run: astyle --version
 
+      - name: Run astyle
+        run: astyle --dry-run --options=astyle-options.ini --mode=c --recursive "./*.c"
+
       - name: Check Podman version
         run: podman --version
 
