@@ -40,7 +40,6 @@ jobs:
         if: steps.diff.outputs.changes == 'true'
         run: |
           echo "::error::There are changes done by astyle."
-          gh run cancel ${{ github.run_id }}
           exit 1
 
       - name: Check Podman version
