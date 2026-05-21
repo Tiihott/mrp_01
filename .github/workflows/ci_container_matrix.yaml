@@ -29,8 +29,7 @@ jobs:
       - name: Get git diff
         id: diff
         run: |
-          git diff --exit-code
-          if [ $? -eq 0 ]; then
+          if git diff --exit-code; then
             echo "No changes to commit."
             echo "::set-output name=changes::false"
           else
