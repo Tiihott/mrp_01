@@ -26,16 +26,17 @@ jobs:
       - name: Run astyle
         run: astyle --options=astyle-options.ini --mode=c --recursive "./*.c, *.h"
 
-      - name: Check git diff
+      - name: Get git diff
+        id: diff
         run: |
-          git diff --exit-code
-          if [ $? -eq 0 ]; then
-            echo "No changes done by astyle."
-          else
-            echo "::error::There are changes done by astyle."
-            gh run cancel ${{ github.run_id }}
-            exit 1
-          fi
+          echo "code=$(git diff --exit-code)" >> "$GITHUB_OUTPUT"
+
+      - name: Assert git diff
+        if: steps.diff.outputs.code
+        run: |
+          echo "::error::There are changes done by astyle."
+          gh run cancel ${{ github.run_id }}
+          exit 1
 
       - name: Check Podman version
         run: podman --version
