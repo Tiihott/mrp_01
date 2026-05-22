@@ -42,6 +42,10 @@ jobs:
           echo "::error::There are changes done by astyle."
           exit 1
 
+      - name: Check C compiler version
+        run: |
+          gcc --version
+
       - name: Check Podman version
         run: podman --version
 
