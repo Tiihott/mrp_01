@@ -44,6 +44,7 @@ jobs:
 
       - name: Check C compiler version
         run: |
+          sudo update-alternatives --set gcc /usr/bin/gcc-14
           gcc --version
 
       - name: Check Podman version
