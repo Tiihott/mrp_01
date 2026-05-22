@@ -42,14 +42,12 @@ jobs:
           echo "::error::There are changes done by astyle."
           exit 1
 
-      - name: install gcc-14
+      - name: Switch to gcc-14
         run: |
-          sudo apt-get install -y gcc-14
-
-      - name: Check C compiler version
-        run: |
+          sudo apt-get install gcc-14 g++-14
+          sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-14 100 --slave /usr/bin/g++ g++ /usr/bin/g++-14 --slave /usr/bin/gcov gcov /usr/bin/gcov-14
+          sudo update-alternatives --set gcc /usr/bin/gcc-14
           gcc --version
-          update-alternatives --list gcc
 
       - name: Check Podman version
         run: podman --version
