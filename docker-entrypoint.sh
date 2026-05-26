@@ -41,7 +41,6 @@
 #    To the extent this program is licensed as part of the Commercial versions of
 #    Teragrep, the applicable Commercial License may apply to this file if you as
 #    a licensee so wish it.
-
 #!/bin/bash
 cd /code || exit 1;
 autoreconf -fvi
